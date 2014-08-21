@@ -1,3 +1,12 @@
+/*!
+ * Defer JS v1.0.0
+ * https://github.com/qntm/Defer-JS
+ *
+ * Copyright 2014 Ben Meyrick
+ * Released under the MIT license
+ */
+
+
 /* Defer all scripts until after page load. The defer property on the script tag does not do this
 properly. This is pretty much guaranteed to work */
 
