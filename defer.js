@@ -15,9 +15,9 @@ var u = [
 ]
 function d() {
 	for (var i = 0; i < u.length; i++) {
-		var element = document.createElement("script");
-		element.src = u[i];
-		document.body.appendChild(element);
+		var e = document.createElement("script");
+		e.src = u[i];
+		document.body.appendChild(e);
 	};
 }
 if (window.addEventListener)
