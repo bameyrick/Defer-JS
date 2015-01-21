@@ -22,18 +22,18 @@ function d() {
 		i++;
 
 		if (i < l)
-		    addEventListener(e, d);
+		    b(e);
 }
 
-function addEventListener(e, f) {
+function b(e) {
     if (window.addEventListener)
-        e.addEventListener("load", f, false);
+        e.addEventListener("load", d, false);
     else if (window.attachEvent)
-        e.attachEvent("onload", f);
-    else e.onload = f;
+        e.attachEvent("onload", d);
+    else e.onload = d;
 }
 
-addEventListener(window, d);
+b(window);
 
 /* if using this in Umbraco, place this script in the master template, and then in each child template
 add a section called scripts. You can then pass through scripts specific to that page as well as global
