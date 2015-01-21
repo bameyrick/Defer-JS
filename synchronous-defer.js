@@ -1,5 +1,5 @@
 /*!
- * Synchronous Defer JS v1.0.0
+ * Synchronous Defer JS v1.0.1
  * https://github.com/qntm/Defer-JS
  *
  * Copyright 2014 Ben Meyrick
@@ -13,6 +13,7 @@ properly. This is pretty much guaranteed to work.  This version won't begin load
 var u = [
    /* Use a comma separated array of your scripts here, e.g. '/js/plugins.js', '/js/main.js' etc*/
 ], i = 0, l = u.length;
+
 function d() {
 		var e = document.createElement("script");
 		e.src = u[i];
@@ -20,20 +21,19 @@ function d() {
       
 		i++;
 
-		if (i < l) {
-		    if (window.addEventListener)
-		        e.addEventListener("load", d, false);
-		    else if (window.attachEvent)
-		        e.attachEvent("onload", d);
-		    else e.onload = d;
-		}
-
+		if (i < l)
+		    addEventListener(e, d);
 }
-if (window.addEventListener)
-	window.addEventListener("load", d, false);
-else if (window.attachEvent)
-	window.attachEvent("onload", d);
-else window.onload = d;
+
+function addEventListener(e, f) {
+    if (window.addEventListener)
+        e.addEventListener("load", f, false);
+    else if (window.attachEvent)
+        e.attachEvent("onload", f);
+    else e.onload = f;
+}
+
+addEventListener(window, d);
 
 /* if using this in Umbraco, place this script in the master template, and then in each child template
 add a section called scripts. You can then pass through scripts specific to that page as well as global
